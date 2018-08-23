@@ -8,8 +8,7 @@
         "vscode": "^1.26.0"
     },
     "categories": [
-        "Other"
-    ],
+        "Programming Languages"    ],
     "activationEvents": [
         "onCommand:extension.sayHello"
     ],
@@ -20,7 +19,18 @@
                 "command": "extension.sayHello",
                 "title": "Hello World"
             }
-        ]
+        ],
+        "languages": [{
+            "id": "motiongenesis",
+            "aliases": ["MotionGenesis", "motiongenesis"],
+            "extensions": [".txt",".al"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "motiongenesis",
+            "scopeName": "source.motiongenesis",
+            "path": "./syntaxes/motiongenesis.plist"
+        }]
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
