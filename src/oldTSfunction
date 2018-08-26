@@ -1,0 +1,16 @@
+(<any>vscode.window).onDidCloseTerminal(() => {
+    vscode.window.showInformationMessage("Terminal de fermé");
+    terminalStack.pop();
+    vscode.window.showInformationMessage(`Stack${terminalStack.length}`);
+})
+(<any>vscode.window).onDidOpenTerminal(() => {
+    vscode.window.showInformationMessage("Terminal d'ouvert");
+    terminalStack.push();
+    vscode.window.showInformationMessage(`Stack${terminalStack.length}`);
+})
+
+    function getLatestTerminal() {
+        return terminalStack[terminalStack.length - 1];
+    }
+
+    

@@ -3,6 +3,8 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import * as path from 'path';
+let mgTerminal : vscode.Terminal;
+
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -18,6 +20,14 @@ export function activate(context: vscode.ExtensionContext) {
     let disposable = vscode.commands.registerCommand('extension.sayHello', () => {
 
         // The code you place here will be executed every time your command is executed
+        const mgPathName = "MotionGenesis "
+        var terminalNameArray = vscode.window.terminals.map(a => a.name);
+        var ismgRunHere = terminalNameArray.indexOf('mgRun') > -1
+        vscode.window.showInformationMessage(`mgPresent? ${ismgRunHere}`);
+        if (!ismgRunHere) {
+            mgTerminal = vscode.window.createTerminal("mgRun");
+        }
+
         let document //: vscode.TextDocument;
         const editor = vscode.window.activeTextEditor;
         if (editor) {
@@ -27,19 +37,22 @@ export function activate(context: vscode.ExtensionContext) {
             return;
         }
 
-        let directory = path.dirname(document.fileName);
-        const preserveFocus = false;
-        let terminal = vscode.window.createTerminal();
+        mgTerminal.show(true);
 
-        // Display a message box to the user
-        vscode.window.showInformationMessage('Hello World!');
+        let directory = path.dirname(document.fileName);
+        let fileName = path.basename(document.fileName);
+
+        const preserveFocus = false;
+        mgTerminal.sendText('quit');
         vscode.commands.executeCommand("workbench.action.terminal.clear");
-        terminal.show(preserveFocus);
-        terminal.sendText("cd "+directory);
-        terminal.sendText('ls');
+        mgTerminal.show(preserveFocus);
+        mgTerminal.sendText("cd " + "\"" + directory + "\"");
+        mgTerminal.sendText(mgPathName + fileName);
     });
 
+
     context.subscriptions.push(disposable);
+
 }
 
 // this method is called when your extension is deactivated
