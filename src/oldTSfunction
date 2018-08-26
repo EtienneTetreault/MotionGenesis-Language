@@ -13,4 +13,7 @@
         return terminalStack[terminalStack.length - 1];
     }
 
+
+vscode.commands.executeCommand("workbench.action.terminal.clear");
+
     

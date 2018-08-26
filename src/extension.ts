@@ -39,6 +39,7 @@ export function activate(context: vscode.ExtensionContext) {
         const directory = path.dirname(document.fileName);
         const fileName = path.basename(document.fileName);
 
+        vscode.commands.executeCommand("workbench.action.files.save");
         const preserveFocus = true;
         mgTerminal.show(preserveFocus);
         mgTerminal.sendText('quit');
