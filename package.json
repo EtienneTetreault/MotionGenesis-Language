@@ -8,29 +8,62 @@
         "vscode": "^1.26.0"
     },
     "categories": [
-        "Programming Languages"    ],
+        "Programming Languages"
+    ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "onCommand:extension.runMG"
     ],
     "main": "./out/extension",
     "contributes": {
         "commands": [
             {
-                "command": "extension.sayHello",
-                "title": "Hello World"
+                "command": "extension.runMG",
+                "title": "run MotionGenesis",
+                "icon": "images/icon.png"
             }
         ],
-        "languages": [{
-            "id": "motiongenesis",
-            "aliases": ["MotionGenesis", "motiongenesis"],
-            "extensions": [".txt",".al"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "motiongenesis",
-            "scopeName": "source.motiongenesis",
-            "path": "./syntaxes/motiongenesis.plist"
-        }]
+
+        "keybindings": [
+            {
+                "command": "extension.runMG",
+                "key": "ctrl+f1",
+                "mac": "cmd+f1",
+                "when": "resourceLangId == motiongenesis"
+            }
+        ],
+
+		"menus": {
+			"editor/title": [
+				{
+					"command": "extension.runMG",
+                    "group": "navigation",
+                    "when": "resourceLangId == motiongenesis"
+				}
+			]
+        },
+        
+        "languages": [
+            {
+                "id": "motiongenesis",
+                "aliases": [
+                    "MotionGenesis",
+                    "motiongenesis"
+                ],
+                "extensions": [
+                    ".txt",
+                    ".al"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+
+        "grammars": [
+            {
+                "language": "motiongenesis",
+                "scopeName": "source.motiongenesis",
+                "path": "./syntaxes/motiongenesis.plist"
+            }
+        ]
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
