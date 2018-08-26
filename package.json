@@ -41,6 +41,19 @@
 				}
 			]
         },
+
+        "configuration": {
+			"type": "object",
+			"title": "MotionGenesis configuration",
+			"properties": {
+				"motiongenesis.runMotionGenesisPath": {
+					"type": "string",
+					"default": "MotionGenesis ",
+					"description": "Name of MotionGenesis executable in terminal, from Path",
+					"scope": "resource"
+				}
+			}
+        },
         
         "languages": [
             {
