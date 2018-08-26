@@ -3,7 +3,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import * as path from 'path';
-let mgTerminal : vscode.Terminal;
+let mgTerminal: vscode.Terminal;
 
 
 // this method is called when your extension is activated
@@ -17,18 +17,11 @@ export function activate(context: vscode.ExtensionContext) {
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with  registerCommand
     // The commandId parameter must match the command field in package.json
-    let disposable = vscode.commands.registerCommand('extension.sayHello', () => {
-
+    let disposable = vscode.commands.registerCommand('extension.runMG', () => {
         // The code you place here will be executed every time your command is executed
+        let document: vscode.TextDocument;
         const mgPathName = "MotionGenesis "
-        var terminalNameArray = vscode.window.terminals.map(a => a.name);
-        var ismgRunHere = terminalNameArray.indexOf('mgRun') > -1
-        vscode.window.showInformationMessage(`mgPresent? ${ismgRunHere}`);
-        if (!ismgRunHere) {
-            mgTerminal = vscode.window.createTerminal("mgRun");
-        }
 
-        let document //: vscode.TextDocument;
         const editor = vscode.window.activeTextEditor;
         if (editor) {
             document = editor.document;
@@ -37,19 +30,21 @@ export function activate(context: vscode.ExtensionContext) {
             return;
         }
 
-        mgTerminal.show(true);
+        const terminalNameArray = vscode.window.terminals.map(a => a.name);
+        const ismgRunHere = terminalNameArray.indexOf('mgRun') > -1
+        if (!ismgRunHere) {
+            mgTerminal = vscode.window.createTerminal("mgRun");
+        }
 
-        let directory = path.dirname(document.fileName);
-        let fileName = path.basename(document.fileName);
+        const directory = path.dirname(document.fileName);
+        const fileName = path.basename(document.fileName);
 
-        const preserveFocus = false;
-        mgTerminal.sendText('quit');
-        vscode.commands.executeCommand("workbench.action.terminal.clear");
+        const preserveFocus = true;
         mgTerminal.show(preserveFocus);
+        mgTerminal.sendText('quit');
         mgTerminal.sendText("cd " + "\"" + directory + "\"");
         mgTerminal.sendText(mgPathName + fileName);
     });
-
 
     context.subscriptions.push(disposable);
 
