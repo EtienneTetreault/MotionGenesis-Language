@@ -1,5 +1,5 @@
 {
-    "name": "motiongenesistest",
+    "name": "motiongen",
     "displayName": "MotionGenesis Language",
     "description": "MotionGenesis Language",
     "version": "0.0.1",
@@ -46,7 +46,7 @@
 			"type": "object",
 			"title": "MotionGenesis configuration",
 			"properties": {
-				"motiongenesis.runMotionGenesisPath": {
+				"motiongen.runMotionGenesisPath": {
 					"type": "string",
 					"default": "MotionGenesis ",
 					"description": "Name of MotionGenesis executable in terminal, from Path",

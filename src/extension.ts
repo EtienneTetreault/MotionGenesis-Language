@@ -20,8 +20,8 @@ export function activate(context: vscode.ExtensionContext) {
     let disposable = vscode.commands.registerCommand('extension.runMG', () => {
         // The code you place here will be executed every time your command is executed
         let document: vscode.TextDocument;
-        const config = vscode.workspace.getConfiguration("motiongenesistest");
-        const mgPathName = config.get<string>("runInTerminal", "MotionGenesis ");
+        const config = vscode.workspace.getConfiguration("motiongen");
+        const mgPathName = config.get("runMotionGenesisPath", "MotionGenesis ");
         // const mgPathName = "MotionGenesis "
 
         const editor = vscode.window.activeTextEditor;
