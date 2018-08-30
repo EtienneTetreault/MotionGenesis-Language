@@ -1,20 +1,26 @@
 {
-    "name": "motiongen",
-    "displayName": "MotionGenesis Language",
-    "description": "MotionGenesis Language",
-    "version": "0.0.1",
-    "publisher": "EtienneTetreault",
-    "engines": {
-        "vscode": "^1.26.0"
-    },
-    "categories": [
-        "Programming Languages"
-    ],
-    "activationEvents": [
-        "onCommand:extension.runMG"
-    ],
-    "main": "./out/extension",
-    "contributes": {
+	"name": "lsp-sample",
+	"description": "A language server example",
+	"author": "Microsoft Corporation",
+	"license": "MIT",
+	"version": "1.0.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Microsoft/vscode-extension-samples"
+	},
+	"publisher": "vscode",
+	"categories": [],
+	"keywords": [
+		"multi-root ready"
+	],
+	"engines": {
+		"vscode": "^1.23.0"
+	},
+	"activationEvents": [
+		"onLanguage:plaintext"
+	],
+	"main": "./client/out/extension",
+	"contributes": {
         "commands": [
             {
                 "command": "extension.runMG",
@@ -22,8 +28,7 @@
                 "icon": "images/icon.png"
             }
         ],
-
-        "keybindings": [
+		"keybindings": [
             {
                 "command": "extension.runMG",
                 "key": "ctrl+f1",
@@ -31,31 +36,16 @@
                 "when": "resourceLangId == motiongenesis"
             }
         ],
-
-		"menus": {
-			"editor/title": [
-				{
-					"command": "extension.runMG",
+        "menus": {
+            "editor/title": [
+                {
+                    "command": "extension.runMG",
                     "group": "navigation",
                     "when": "resourceLangId == motiongenesis"
-				}
-			]
+                }
+            ]
         },
-
-        "configuration": {
-			"type": "object",
-			"title": "MotionGenesis configuration",
-			"properties": {
-				"motiongen.runMotionGenesisPath": {
-					"type": "string",
-					"default": "MotionGenesis ",
-					"description": "Name of MotionGenesis executable in terminal, from Path",
-					"scope": "resource"
-				}
-			}
-        },
-        
-        "languages": [
+		"languages": [
             {
                 "id": "motiongenesis",
                 "aliases": [
@@ -69,27 +59,50 @@
                 "configuration": "./language-configuration.json"
             }
         ],
-
         "grammars": [
             {
                 "language": "motiongenesis",
                 "scopeName": "source.motiongenesis",
                 "path": "./syntaxes/motiongenesis.plist"
             }
-        ]
-    },
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "npm run compile && node ./node_modules/vscode/bin/test"
-    },
-    "devDependencies": {
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.6",
-        "tslint": "^5.8.0",
-        "@types/node": "^7.0.43",
-        "@types/mocha": "^2.2.42"
-    }
+        ],
+		"configuration": {
+			"type": "object",
+			"title": "Example configuration",
+			"properties": {
+				"languageServerExample.maxNumberOfProblems": {
+					"scope": "resource",
+					"type": "number",
+					"default": 100,
+					"description": "Controls the maximum number of problems produced by the server."
+				},
+				"languageServerExample.trace.server": {
+					"scope": "window",
+					"type": "string",
+					"enum": [
+						"off",
+						"messages",
+						"verbose"
+					],
+					"default": "off",
+					"description": "Traces the communication between VS Code and the language server."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "cd client && npm run update-vscode && cd .. && npm run compile",
+		"compile:client": "tsc -p ./client/tsconfig.json",
+		"compile:server": "tsc -p ./server/tsconfig.json",
+		"watch:client": "tsc -w -p ./client/tsconfig.json",
+		"watch:server": "tsc -w -p ./server/tsconfig.json",
+		"compile": "npm run compile:client && npm run compile:server",
+		"postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
+		"test": "sh ./scripts/e2e.sh"
+	},
+	"devDependencies": {
+		"@types/mocha": "^5.2.0",
+		"@types/node": "^8.0.0",
+		"typescript": "2.8.3"
+	}
 }
