@@ -63,7 +63,7 @@
 			{
 				"language": "motiongenesis",
 				"scopeName": "source.motiongenesis",
-				"path": "./syntaxes/motiongenesis.plist"
+				"path": "./syntaxes/motiongenesis.tmLanguage.json"
 			}
 		],
 		"configuration": {
