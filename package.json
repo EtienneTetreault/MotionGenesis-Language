@@ -86,7 +86,13 @@
 					],
 					"default": "off",
 					"description": "Traces the communication between VS Code and the language server."
-				}
+				},
+				"motiongenesisconfig.runMotionGenesisPath": {
+                    "type": "string",
+                    "default": "MotionGenesis ",
+                    "description": "Name of MotionGenesis executable in terminal, from Path",
+                    "scope": "resource"
+                }
 			}
 		}
 	},
