@@ -5,7 +5,9 @@
 'use strict';
 
 import * as path from 'path';
-import { workspace, ExtensionContext, commands, window } from 'vscode';
+import { workspace, ExtensionContext } from 'vscode';
+import * as vscode from 'vscode';
+
 
 import {
 	LanguageClient,
@@ -15,16 +17,44 @@ import {
 } from 'vscode-languageclient';
 
 let client: LanguageClient;
+let mgTerminal: vscode.Terminal;
 
 export function activate(context: ExtensionContext) {
 	console.log('Congratulations, your extension "motiongenesis-language" is now active!');
-	let disposable = commands.registerCommand('extension.runMG', () => {
+	let disposable = vscode.commands.registerCommand('extension.runMG', () => {
 		// The code you place here will be executed every time your command is executed
-		window.showInformationMessage('Hello World!');
+		let document: vscode.TextDocument;
+		const config = vscode.workspace.getConfiguration("motiongen", null as any as undefined);
+		const mgPathName = config.get("runMotionGenesisPath", "MotionGenesis ");
+		// const mgPathName = "MotionGenesis "
 
-    });
+		const editor = vscode.window.activeTextEditor;
+		if (editor) {
+			document = editor.document;
+		} else {
+			vscode.window.showInformationMessage("No code found or selected.");
+			return;
+		}
 
-    context.subscriptions.push(disposable);
+		const terminalNameArray = vscode.window.terminals.map(a => a.name);
+		const ismgRunHere = terminalNameArray.indexOf('mgRun') > -1
+		if (!ismgRunHere) {
+			mgTerminal = vscode.window.createTerminal("mgRun");
+		}
+
+		const directory = path.dirname(document.fileName);
+		const fileName = path.basename(document.fileName);
+
+		vscode.commands.executeCommand("workbench.action.files.save");
+		const preserveFocus = true;
+		mgTerminal.show(preserveFocus);
+		mgTerminal.sendText('quit');
+		mgTerminal.sendText("cd " + "\"" + directory + "\"");
+		mgTerminal.sendText(mgPathName + fileName);
+
+	});
+
+	context.subscriptions.push(disposable);
 
 	// The server is implemented in node
 	let serverModule = context.asAbsolutePath(
