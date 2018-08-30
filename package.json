@@ -14,58 +14,58 @@
 		"multi-root ready"
 	],
 	"engines": {
-		"vscode": "^1.23.0"
+		"vscode": "^1.26.0"
 	},
 	"activationEvents": [
 		"onLanguage:plaintext"
 	],
 	"main": "./client/out/extension",
 	"contributes": {
-        "commands": [
-            {
-                "command": "extension.runMG",
-                "title": "run MotionGenesis",
-                "icon": "images/icon.png"
-            }
-        ],
+		"commands": [
+			{
+				"command": "extension.runMG",
+				"title": "run MotionGenesis",
+				"icon": "images/icon.png"
+			}
+		],
 		"keybindings": [
-            {
-                "command": "extension.runMG",
-                "key": "ctrl+f1",
-                "mac": "cmd+f1",
-                "when": "resourceLangId == motiongenesis"
-            }
-        ],
-        "menus": {
-            "editor/title": [
-                {
-                    "command": "extension.runMG",
-                    "group": "navigation",
-                    "when": "resourceLangId == motiongenesis"
-                }
-            ]
-        },
+			{
+				"command": "extension.runMG",
+				"key": "ctrl+f1",
+				"mac": "cmd+f1",
+				"when": "resourceLangId == motiongenesis"
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"command": "extension.runMG",
+					"group": "navigation",
+					"when": "resourceLangId == motiongenesis"
+				}
+			]
+		},
 		"languages": [
-            {
-                "id": "motiongenesis",
-                "aliases": [
-                    "MotionGenesis",
-                    "motiongenesis"
-                ],
-                "extensions": [
-                    ".txt",
-                    ".al"
-                ],
-                "configuration": "./language-configuration.json"
-            }
-        ],
-        "grammars": [
-            {
-                "language": "motiongenesis",
-                "scopeName": "source.motiongenesis",
-                "path": "./syntaxes/motiongenesis.plist"
-            }
-        ],
+			{
+				"id": "motiongenesis",
+				"aliases": [
+					"MotionGenesis",
+					"motiongenesis"
+				],
+				"extensions": [
+					".txt",
+					".al"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "motiongenesis",
+				"scopeName": "source.motiongenesis",
+				"path": "./syntaxes/motiongenesis.plist"
+			}
+		],
 		"configuration": {
 			"type": "object",
 			"title": "Example configuration",
