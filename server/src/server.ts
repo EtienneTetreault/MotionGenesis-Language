@@ -187,14 +187,52 @@ connection.onCompletion(
 		// info and always provide the same completion items.
 		return [
 			{
-				label: 'TypeScript',
-				kind: CompletionItemKind.Text,
+				label: 'NewtonianFrame',
+				kind: CompletionItemKind.Class,
 				data: 1
 			},
 			{
-				label: 'JavaScript',
-				kind: CompletionItemKind.Text,
+				label: 'RigidBody',
+				kind: CompletionItemKind.Class,
 				data: 2
+			},
+			{
+				label: 'RigidFrame',
+				kind: CompletionItemKind.Class,
+				data: 3
+			},
+			{
+				label: 'Particle',
+				kind: CompletionItemKind.Class,
+				data: 4
+			},			{
+				label: 'Point',
+				kind: CompletionItemKind.Class,
+				data: 5
+			},
+			{
+				label: 'Variable',
+				kind: CompletionItemKind.Class,
+				data: 6
+			},
+			{
+				label: 'Constant',
+				kind: CompletionItemKind.Class,
+				data: 7
+			},
+			{
+				label: 'Specified',
+				kind: CompletionItemKind.Class,
+				data: 8
+			},			{
+				label: 'SetMass',
+				kind: CompletionItemKind.Method,
+				data: 9
+			},
+			{
+				label: 'SetInertia',
+				kind: CompletionItemKind.Method,
+				data: 10
 			}
 		];
 	}
