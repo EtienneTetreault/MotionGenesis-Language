@@ -1,0 +1,26 @@
+{
+    "name": "MotionGenesis",
+    "scopeName": "source.motiongenesis",
+    "fileTypes": [
+        "txt",
+        "al"
+    ],
+    "patterns": [
+        {
+            "match": "(%.*)",
+            "name": "comment.source.motiongenesis"
+        },
+        {
+            "match": "(^NewtonianFrame|^RigidBody|^RigidFrame|^Particle|^Point|^Variable|^Constant|^Specified|^Input|^OutputPlot|^Output)",
+            "name": "storage.source.motiongenesis"
+        },
+        {
+            "match": "([\\[\\]=])",
+            "name": "keyword.source.motiongenesis"
+        },
+        {
+            "match": "(( |\\.|-)(\\d+))",
+            "name": "constant.numeric.motiongenesis"
+        }
+    ]
+}
