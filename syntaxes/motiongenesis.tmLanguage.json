@@ -24,14 +24,34 @@
             "end": "\\]",
             "patterns": [
                 {
-                "name": "constant.numeric.motiongenesis",
-                "match": "(\\d+)"
+                    "name": "constant.numeric.motiongenesis",
+                    "match": "(\\d+)"
                 }
             ]
         },
         {
             "name": "constant.numeric.motiongenesis",
             "match": "(( |\\.|-)(\\d+))"
+        },
+        {
+            "include": "#all_motionGen_function"
         }
-    ]
+    ],
+    "repository": {
+        "all_motionGen_function": {
+            "patterns": [
+                {
+                    "include": "#motionGen_mass_function"
+                },
+                {
+                    "name": "support.function.motiongenesis",
+                    "match": "(RotateX|RotateNegativeY)"
+                }
+            ]
+        },
+        "motionGen_mass_function": {
+            "name": "keyword.source.motiongenesis",
+            "match": "(GetMass|SetMass|GetCharge|SetCharge|GetCmPosition|GetCmVelocity|GetCmAcceleration|GetInertiaDyadic|GetInertiaMatrix|GetMomentOfInertia|GetProductOfInertia|GetRadiusOfGyration|GetInertiaVector|SetInertia)"
+        }
+    }
 }
