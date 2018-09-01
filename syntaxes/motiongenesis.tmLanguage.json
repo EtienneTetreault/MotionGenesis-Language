@@ -7,20 +7,31 @@
     ],
     "patterns": [
         {
-            "match": "(%.*)",
-            "name": "comment.source.motiongenesis"
+            "name": "comment.source.motiongenesis",
+            "match": "(%.*)"
         },
         {
-            "match": "(^NewtonianFrame|^RigidBody|^RigidFrame|^Particle|^Point|^Variable|^Constant|^Specified|^Input|^OutputPlot|^Output)",
-            "name": "storage.source.motiongenesis"
+            "name": "storage.source.motiongenesis",
+            "match": "(^NewtonianFrame|^RigidBody|^RigidFrame|^Particle|^Point|^Variable|^Constant|^Specified|^Input|^OutputPlot|^Output)"
         },
         {
-            "match": "([\\[\\]=])",
-            "name": "keyword.source.motiongenesis"
+            "name": "keyword.source.motiongenesis",
+            "match": "(=)"
         },
         {
-            "match": "(( |\\.|-)(\\d+))",
-            "name": "constant.numeric.motiongenesis"
+            "name": "keyword.source.motiongenesis",
+            "begin": "\\[",
+            "end": "\\]",
+            "patterns": [
+                {
+                "name": "constant.numeric.motiongenesis",
+                "match": "(\\d+)"
+                }
+            ]
+        },
+        {
+            "name": "constant.numeric.motiongenesis",
+            "match": "(( |\\.|-)(\\d+))"
         }
     ]
 }
