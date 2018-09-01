@@ -1,0 +1,80 @@
+Pre-defined symbols and syntax  (type  HELP SYNTAX  for more help):
+ Pi   t   imaginary   &   %   %%   0>   0>>   1>>   >   >>    :=
+----------------------------------------------------------------------------
+Mathematical Functions  (type  HELP MathFunctions  for more help):
+ abs   exp    log   log10   Factorial  Squared  sqrt   Spline
+ cos   sin    tan   cosh    sinh       tanh     acos   asin   atan   atan2
+ ceil  floor  int   round   sign       max      min           randomInteger
+ cosDegrees   sinDegrees    tanDegrees acosDegrees     ...    atan2Degrees
+----------------------------------------------------------------------------
+Mathematical commands (work on scalars, vectors, and matrices):
+ D Dt DtDt  Epsilon        Evaluate EvaluateAtInput  Exclude   Include
+ Integrate  GetCoefficient GetRhs   GetTaylorSeries  Linearize ReplaceString
+----------------------------------------------------------------------------
+Mathematical simplification (work on scalars, vectors, and matrices):
+ Expand  Explicit  Factor  FactorLinear  FactorQuadratic  Zee
+----------------------------------------------------------------------------
+Roots, solving equations, and setting ordinary derivatives
+ GetLinearRoots  GetQuadraticRoots  GetPolynomialRoots  ...
+ Solve           SolveDt            SolveSetInput       SolveSetInputDt
+ SetDt  SolveQuadraticPositiveRoot  SolveQuadraticPositiveRootDt ...
+----------------------------------------------------------------------------
+Mathematical declarations:
+ Constant   Variable   Specified   Pi   ImaginaryNumber   IndependentVariable
+ SetGeneralizedSpeed   SetGeneralizedCoordinate
+----------------------------------------------------------------------------
+Physical declarations:
+ NewtonianFrame   RigidBody   RigidFrame   Point   Particle    System
+----------------------------------------------------------------------------
+Mass, center of mass, inertia, and charge:
+ GetMass              SetMass              GetCharge           SetCharge
+ GetCmPosition        GetCmVelocity        GetCmAcceleration
+ GetInertiaDyadic     GetInertiaMatrix     GetMomentOfInertia
+ GetProductOfInertia  GetRadiusOfGyration  GetInertiaVector    SetInertia
+----------------------------------------------------------------------------
+Vectors and dyadics:
+ Cross                   Dot                          Dyadic   Express
+ GetAngleBetweenVectors  GetAngleBetweenUnitVectors   GetBasisVector
+ GetMagnitude            GetMagnitudeSquared
+ GetUnitVector           Vector
+----------------------------------------------------------------------------
+Matrices:
+ GetColumns   GetDeterminant      GetDiagonalMatrix   GetEigen
+ GetElement   GetIdentityMatrix   GetInverse          GetRows   GetSVD
+ GetTrace     GetTranspose        GetZeroMatrix       Matrix    Convolve
+----------------------------------------------------------------------------
+Rotational kinematics (rotation matrices, angular velocity/acceleration):
+ Rotate                  RotateX  RotateY  RotateZ   RotateNegativeX  ...
+ GetRotationMatrix       SetRotationMatrix           SetRotationMatrixODE
+ GetAngularVelocity      SetAngularVelocity          GetAngularSpeed ...
+ GetAngularAcceleration  SetAngularAcceleration SetAngularVelocityAcceleration
+----------------------------------------------------------------------------
+Translational kinematics (position, velocity, and acceleration)
+ Translate        SetPositionVelocity        SetVelocityAcceleration
+ SetPosition      GetPosition   GetDistance  GetDistanceSquared
+ SetVelocity      GetVelocity   GetSpeed     GetElongation
+ SetAcceleration  GetAcceleration
+----------------------------------------------------------------------------
+Forces:
+ AddForce              AddForceDamper AddForceElectrostatic  AddForceGravity
+ AddForceInverseSquare AddForceSpring AddForceLinearActuator GetResultantForce
+----------------------------------------------------------------------------
+Torque and Moments:
+ AddTorque   AddTorqueDamper   GetMomentOfForces   GetResultantTorque
+----------------------------------------------------------------------------
+Potential energy and dissipation functions
+ GetForceGravityPotentialEnergy         GetForceSpringPotentialEnergy
+ GetForceElectrostaticPotentialEnergy   GetForceInverseSquarePotentialEnergy
+----------------------------------------------------------------------------
+Kinetic energy and Angular/linear momentum (also see Gyrostat):
+ GetKineticEnergy GetAngularMomentum GetLinearMomentum GetGeneralizedMomentum
+----------------------------------------------------------------------------
+Statics and dynamics commands:
+ GetStatics,  GetStaticsKane,  GetStaticsLagrange,  Constrain
+ GetDynamics, GetDynamicsKane, GetDynamicsLagrange
+----------------------------------------------------------------------------
+Units and unit conversions:
+ ConvertUnits   GetUnitSystem   SetUnitSystem
+----------------------------------------------------------------------------
+Code languages and commands: .c,  .m,  .f,  .for,  ...
+ ODE(...)    Solve(...)    Input   Output   OutputPlot   Plot   Animate
