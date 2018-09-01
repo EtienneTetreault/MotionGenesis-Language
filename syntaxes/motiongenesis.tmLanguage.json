@@ -16,22 +16,12 @@
         },
         {
             "name": "keyword.source.motiongenesis",
-            "match": "(=)"
-        },
-        {
-            "name": "keyword.source.motiongenesis",
-            "begin": "\\[",
-            "end": "\\]",
-            "patterns": [
-                {
-                    "name": "constant.numeric.motiongenesis",
-                    "match": "(\\d+)"
-                }
-            ]
+            "match": "(=|\\[|\\])"
         },
         {
             "name": "constant.numeric.motiongenesis",
-            "match": "(( |\\.|-)(\\d+))"
+            "match": "(?<=[\\s\\-\\+\\*\\/\\\\=:\\[\\(\\{,]|^)\\d*\\.?\\d+([eE][+-]?\\d)?([0-9&&[^\\.]])*(i|j)?\\b",
+            "comment": "Valid numbers: 1, .1, 1.1, .1e1, 1.1e1, 1e1, 1i, 1j, 1e2j"
         },
         {
             "include": "#all_motionGen_function"
@@ -50,7 +40,7 @@
             ]
         },
         "motionGen_mass_function": {
-            "name": "keyword.source.motiongenesis",
+            "name": "support.function.motiongenesis",
             "match": "(GetMass|SetMass|GetCharge|SetCharge|GetCmPosition|GetCmVelocity|GetCmAcceleration|GetInertiaDyadic|GetInertiaMatrix|GetMomentOfInertia|GetProductOfInertia|GetRadiusOfGyration|GetInertiaVector|SetInertia)"
         }
     }
