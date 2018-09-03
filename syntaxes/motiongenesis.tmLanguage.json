@@ -11,6 +11,10 @@
             "match": "(%.*)"
         },
         {
+            "name": "string.motiongenesis",
+            "match": "(>|')"
+        },
+        {
             "name": "keyword.motiongenesis",
             "match": "(=|\\[|\\]|&|save|Save|quit|Quit)"
         },
