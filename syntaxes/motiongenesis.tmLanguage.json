@@ -11,10 +11,6 @@
             "match": "(%.*)"
         },
         {
-            "name": "storage.motiongenesis",
-            "match": "(^NewtonianFrame|^RigidBody|^RigidFrame|^Particle|^Point|^Variable|^Constant|^Specified|^Input|^OutputPlot|^Output)"
-        },
-        {
             "name": "keyword.motiongenesis",
             "match": "(=|\\[|\\])"
         },
@@ -37,18 +33,70 @@
                     "include": "#motionGen_vector_function"
                 },
                 {
-                    "name": "support.function.motiongenesis",
-                    "match": "(RotateX|RotateNegativeY)"
+                    "include": "#motionGen_math_declaration"
+                },
+                {
+                    "include": "#motionGen_physical_declaration"
+                },
+                {
+                    "include": "#motionGen_matrice_functions"
+                },
+                {
+                    "include": "#motionGen_rotational_functions"
+                },
+                {
+                    "include": "#motionGen_translational_functions"
+                },
+                {
+                    "include": "#motionGen_force_functions"
+                },
+                {
+                    "include": "#motionGen_torque_functions"
+                },
+                {
+                    "include": "#motionGen_energy_functions"
                 }
             ]
         },
         "motionGen_mass_function": {
             "name": "support.function.motiongenesis",
-            "match": "\\b(GetMass|SetMass|GetCharge|SetCharge|GetCmPosition|GetCmVelocity|GetCmAcceleration|GetInertiaDyadic|GetInertiaMatrix|GetMomentOfInertia|GetProductOfInertia|GetRadiusOfGyration|GetInertiaVector|SetInertia)\\b"
+            "match": "(?i)\\b(GetMass|SetMass|GetCharge|SetCharge|GetCmPosition|GetCmVelocity|GetCmAcceleration|GetInertiaDyadic|GetInertiaMatrix|GetMomentOfInertia|GetProductOfInertia|GetRadiusOfGyration|GetInertiaVector|SetInertia)\\b"
         },
         "motionGen_vector_function": {
             "name": "support.function.motiongenesis",
-            "match": "\\b(Cross|Dot|Dyadic|Express|GetAngleBetweenVectors|GetAngleBetweenUnitVectors|GetBasisVectorGetMagnitude|GetMagnitudeSquared|GetUnitVector|Vector)\\b"
+            "match": "(?i)\\b(Cross|Dot|Dyadic|Express|GetAngleBetweenVectors|GetAngleBetweenUnitVectors|GetBasisVectorGetMagnitude|GetMagnitudeSquared|GetUnitVector|Vector)\\b"
+        },
+        "motionGen_math_declaration": {
+            "name": "storage.motiongenesis",
+            "match": "(?i)\\b(Constant|Variable|Specified|ImaginaryNumber|GetImaginaryNumber|SetImaginaryNumber|IndependentVariable|SetGeneralizedSpeed|SetGeneralizedSpeed|SetGeneralizedCoordinate|GetGeneralizedCoordinate)\\b"
+        },
+        "motionGen_physical_declaration": {
+            "name": "storage.motiongenesis",
+            "match": "(?i)\\b(NewtonianFrame|RigidBody|RigidFrame|Point|Particle|System )\\b"
+        },
+        "motionGen_matrice_functions": {
+            "name": "support.function.motiongenesis",
+            "match": "(?i)\\b(GetColumns|GetDeterminant|GetDiagonalMatrix|GetEigen|GetElement|GetIdentityMatrix|GetInverse|GetRows|GetSVD|GetTrace|GetTranspose|GetZeroMatrix|Matrix|Convolve)\\b"
+        },
+        "motionGen_rotational_functions": {
+            "name": "support.function.motiongenesis",
+            "match": "(?i)\\b(Rotate|RotateX|RotateY|RotateZ|RotateNegativeX|RotateNegativeY|RotateNegativeZ|GetRotationMatrix|SetRotationMatrix|SetRotationMatrixX|SetRotationMatrixY|SetRotationMatrixZ|SetRotationMatrixNegativeX|SetRotationMatrixNegativeY|SetRotationMatrixNegativeZ|SetRotationMatrixODE|GetAngularVelocity|SetAngularVelocity|GetAngularSpeed|GetAngularSpeedSquared|GetAngularAcceleration|SetAngularAcceleration|SetAngularVelocityAcceleration)\\b"
+        },
+        "motionGen_translational_functions": {
+            "name": "support.function.motiongenesis",
+            "match": "(?i)\\b(Translate|SetPositionVelocity|SetVelocityAcceleration|SetPosition|GetPosition|GetDistance|GetDistanceSquared|SetVelocity|GetVelocity|GetSpeed|GetElongation|SetAcceleration|GetAcceleration)\\b"
+        },
+        "motionGen_force_functions": {
+            "name": "support.function.motiongenesis",
+            "match": "(?i)\\b(AddForce|AddForceDamper|AddForceElectrostatic|AddForceGravity|AddForceInverseSquare|AddForceSpring|AddForceLinearActuator|GetResultantForce)\\b"
+        },
+        "motionGen_torque_functions": {
+            "name": "support.function.motiongenesis",
+            "match": "(?i)\\b(AddTorque|AddTorqueDamper|GetMomentOfForces|GetResultantTorque)\\b"
+        },
+        "motionGen_energy_functions": {
+            "name": "support.function.motiongenesis",
+            "match": "(?i)\\b(GetForceGravityPotentialEnergy|GetForceSpringPotentialEnergy|GetForceElectrostaticPotentialEnergy|GetForceInverseSquarePotentialEnergy|GetKineticEnergy|GetAngularMomentum|GetLinearMomentum|GetGeneralizedMomentum)\\b"
         }
     }
 }
