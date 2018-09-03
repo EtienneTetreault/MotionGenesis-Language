@@ -12,7 +12,7 @@
         },
         {
             "name": "keyword.motiongenesis",
-            "match": "(=|\\[|\\])"
+            "match": "(=|\\[|\\]|&|save|Save|quit|Quit)"
         },
         {
             "name": "constant.numeric.motiongenesis",
@@ -55,6 +55,30 @@
                 },
                 {
                     "include": "#motionGen_energy_functions"
+                },
+                {
+                    "include": "#motionGen_equation_functions"
+                },
+                {
+                    "include": "#motionGen_unit_functions"
+                },
+                {
+                    "include": "#motionGen_output_functions"
+                },
+                {
+                    "include": "#motionGen_constant_functions"
+                },
+                {
+                    "include": "#motionGen_solve_functions"
+                },
+                {
+                    "include": "#motionGen_simple_functions"
+                },
+                {
+                    "include": "#motionGen_math_commands"
+                },
+                {
+                    "include": "#motionGen_math_functions"
                 }
             ]
         },
@@ -97,6 +121,38 @@
         "motionGen_energy_functions": {
             "name": "support.function.motiongenesis",
             "match": "(?i)\\b(GetForceGravityPotentialEnergy|GetForceSpringPotentialEnergy|GetForceElectrostaticPotentialEnergy|GetForceInverseSquarePotentialEnergy|GetKineticEnergy|GetAngularMomentum|GetLinearMomentum|GetGeneralizedMomentum)\\b"
+        },
+        "motionGen_equation_functions": {
+            "name": "support.function.motiongenesis",
+            "match": "(?i)\\b(ODE|Solve|GetStatics|GetStaticsKane|GetStaticsLagrange|Constrain|GetDynamics|GetDynamicsKane|GetDynamicsLagrange)\\b"
+        },
+        "motionGen_unit_functions": {
+            "name": "support.function.motiongenesis",
+            "match": "(?i)\\b(ConvertUnits|GetUnitSystem|SetUnitSystem|GetMassUnit|GetLengthUnit|GetTimeUnit|GetAngleUnit)\\b"
+        },
+        "motionGen_output_functions": {
+            "name": "storage.motiongenesis",
+            "match": "(?i)\\b(Input|Output|OutputPlot|Plot|Animate)\\b"
+        },
+        "motionGen_constant_functions": {
+            "name": "constant.language.motiongenesis",
+            "match": "(?i)\\b(System|t|pi)\\b"
+        },
+        "motionGen_solve_functions": {
+            "name": "support.function.motiongenesis",
+            "match": "(?i)\\b(GetLinearRoots|GetQuadraticRoots|GetCubicRoots|GetQuarticRoots|GetQuinticRoots|GetPolynomialRoots|GetPolynomialFunction|SolveDt|SolveSetInput|SolveSetInputDt|SetDt|GetQuadraticPositiveRoot|SolveQuadraticPositiveRoot|SolveQuadraticPositiveRootDt)\\b"
+        },
+        "motionGen_simple_functions": {
+            "name": "support.function.motiongenesis",
+            "match": "(?i)\\b(Expand|Explicit|Factor|FactorLinear|FactorQuadratic|Zee)\\b"
+        },
+        "motionGen_math_commands": {
+            "name": "support.function.motiongenesis",
+            "match": "(?i)\\b(D|Dt|DtDt|Epsilon|Evaluate|EvaluateAtInput|Exclude|Include|Integrate|GetCoefficient|GetRhs|GetTaylorSeries|Linearize|ReplaceString|GetRhs|SetAutoRhs|SetNoZeeSymbol)\\b"
+        },
+        "motionGen_math_functions": {
+            "name": "support.function.motiongenesis",
+            "match": "(?i)\\b(abs|exp|log|log10|Factorial|Squared|sqrt|Spline|cos|sin|tan|cosh|sinh|tanh|acos|asin|atan|atan2|ceil|floor|int|round|sign|max|min|randomInteger|sinDegrees|tanDegrees|acosDegrees|atanDegrees|atan2Degrees)\\b"
         }
     }
 }
