@@ -73,8 +73,8 @@
 				"languageServerExample.maxNumberOfProblems": {
 					"scope": "resource",
 					"type": "number",
-					"default": 100,
-					"description": "Controls the maximum number of problems produced by the server."
+					"default": 0,
+					"description": "Controls the maximum number of problems produced by the server. Set to 0 to cancel Server diagnosic. Default is now 0 because there is no diagnosic management in server"
 				},
 				"languageServerExample.trace.server": {
 					"scope": "window",
