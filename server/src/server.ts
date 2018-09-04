@@ -224,7 +224,8 @@ connection.onCompletion(
 				label: 'Specified',
 				kind: CompletionItemKind.Class,
 				data: 8
-			},			{
+			},
+			{
 				label: 'SetMass',
 				kind: CompletionItemKind.Method,
 				data: 9
@@ -233,6 +234,66 @@ connection.onCompletion(
 				label: 'SetInertia',
 				kind: CompletionItemKind.Method,
 				data: 10
+			},
+			{
+				label: 'Rotate',
+				kind: CompletionItemKind.Method,
+				data: 11
+			},
+			{
+				label: 'Translate',
+				kind: CompletionItemKind.Method,
+				data: 12
+			},
+			{
+				label: 'AddForceGravity',
+				kind: CompletionItemKind.Method,
+				data: 13
+			},
+			{
+				label: 'AddForce',
+				kind: CompletionItemKind.Method,
+				data: 14
+			},
+			{
+				label: 'AddTorque',
+				kind: CompletionItemKind.Method,
+				data: 15
+			},
+			{
+				label: 'GetDynamics',
+				kind: CompletionItemKind.Method,
+				data: 16
+			},
+			{
+				label: 'Input',
+				kind: CompletionItemKind.Class,
+				data: 17
+			},
+			{
+				label: 'Output',
+				kind: CompletionItemKind.Class,
+				data: 18
+			},
+			{
+				label: 'OutputPlot',
+				kind: CompletionItemKind.Class,
+				data: 19
+			},
+			{
+				label: 'ODE',
+				kind: CompletionItemKind.Function,
+				data: 20
+			},
+			{
+				label: 'Dot',
+				kind: CompletionItemKind.Function,
+				data: 21
+			},
+			{
+				label: 'Cross',
+				kind: CompletionItemKind.Function,
+				data: 22
 			}
 		];
 	}
