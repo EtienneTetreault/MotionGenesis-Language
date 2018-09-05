@@ -9,6 +9,7 @@
 		"url": "https://github.com/Microsoft/vscode-extension-samples"
 	},
 	"publisher": "vscode",
+	"icon": "images/mgLogo.png",
 	"categories": [],
 	"keywords": [
 		"multi-root ready"
@@ -25,7 +26,7 @@
 			{
 				"command": "extension.runMG",
 				"title": "run MotionGenesis",
-				"icon": "images/icon.png"
+				"icon": "images/mgLogo.png"
 			}
 		],
 		"keybindings": [
@@ -74,7 +75,7 @@
 					"scope": "resource",
 					"type": "number",
 					"default": 0,
-					"description": "Controls the maximum number of problems produced by the server. Set to 0 to cancel Server diagnosic. Default is now 0 because there is no diagnosic management in server"
+					"description": "Controls the maximum number of problems produced by the server. Set to 0 to cancel Server diagnosic. Default is now 0 because there is no diagnosic management in server."
 				},
 				"languageServerExample.trace.server": {
 					"scope": "window",
