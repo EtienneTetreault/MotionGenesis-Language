@@ -7,6 +7,7 @@
 import * as path from 'path';
 import { workspace, ExtensionContext } from 'vscode';
 import * as vscode from 'vscode';
+import * as mgCommands from './command';
 
 
 import {
@@ -17,44 +18,16 @@ import {
 } from 'vscode-languageclient';
 
 let client: LanguageClient;
-let mgTerminal: vscode.Terminal;
 
 export function activate(context: ExtensionContext) {
 	console.log('Congratulations, your extension "motiongenesis-language" is now active!');
 	
-	let disposable = vscode.commands.registerCommand('extension.runMG', () => {
-		// The code you place here will be executed every time your command is executed
-		let document: vscode.TextDocument;
-		const config = vscode.workspace.getConfiguration("motiongenesisconfig", null as any as undefined);
-		const mgPathName = config.get("runMotionGenesisPath", "MotionGenesis ");
-
-		const editor = vscode.window.activeTextEditor;
-		if (editor) {
-			document = editor.document;
-		} else {
-			vscode.window.showInformationMessage("No code found or selected.");
-			return;
-		}
-
-		const terminalNameArray = vscode.window.terminals.map(a => a.name);
-		const ismgRunHere = terminalNameArray.indexOf('mgRun') > -1
-		if (!ismgRunHere) {
-			mgTerminal = vscode.window.createTerminal("mgRun");
-		}
-
-		const directory = path.dirname(document.fileName);
-		const fileName = path.basename(document.fileName);
-
-		vscode.commands.executeCommand("workbench.action.files.save");
-		const preserveFocus = true;
-		mgTerminal.show(preserveFocus);
-		mgTerminal.sendText('quit');
-		mgTerminal.sendText("cd " + "\"" + directory + "\"");
-		mgTerminal.sendText(mgPathName + fileName);
-
+	// The commands used in language support and define in .\command.ts are implemented
+	let mgRun = vscode.commands.registerCommand('extension.runMG', () => {
+		mgCommands.commandRunMG()
 	});
 
-	context.subscriptions.push(disposable);
+	context.subscriptions.push(mgRun);
 
 	// The server is implemented in node
 	let serverModule = context.asAbsolutePath(
