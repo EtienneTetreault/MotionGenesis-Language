@@ -10,7 +10,7 @@ This extension works for plain text file with extension .txt or .al, as prefered
 - Keyboard binding and quickmenu button to easily acces the runMG command
 
 ## Futur Functionality
-The 'lsp-sample' used as template, include a client/server connection (LSP) and allow for more complexe language features to be added. The 'server/src/server.ts' already have the structure for :
+The `lsp-sample` used as template, include a client/server connection (LSP) and allow for more complexe language features to be added. The `server/src/server.ts` already have the structure for :
 - Autocompletion (MG native functions to be added...)
 - Diagnostics
 - See https://code.visualstudio.com/docs/extensionAPI/language-support
