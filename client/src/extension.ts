@@ -5,8 +5,7 @@
 'use strict';
 
 import * as path from 'path';
-import { workspace, ExtensionContext } from 'vscode';
-import * as vscode from 'vscode';
+import { workspace, ExtensionContext, commands } from 'vscode';
 import * as mgCommands from './command';
 
 
@@ -19,14 +18,11 @@ import {
 
 let client: LanguageClient;
 
-export function activate(context: ExtensionContext) {
-	console.log('Congratulations, your extension "motiongenesis-language" is now active!');
-	
+export function activate(context: ExtensionContext) {	
 	// The commands used in language support and define in .\command.ts are implemented
-	let mgRun = vscode.commands.registerCommand('extension.runMG', () => {
+	let mgRun = commands.registerCommand('extension.runMG', () => {
 		mgCommands.commandRunMG()
 	});
-
 	context.subscriptions.push(mgRun);
 
 	// The server is implemented in node

@@ -7,7 +7,6 @@ let mgTerminal: vscode.Terminal;
 let document: vscode.TextDocument;
 
 export function commandRunMG() {
-    // let disposable = vscode.commands.registerCommand('extension.runMG', () => {
     // The code you place here will be executed every time your command is executed
     const config = vscode.workspace.getConfiguration("motiongenesisconfig", null as any as undefined);
     const mgPathName = config.get("runMotionGenesisPath", "MotionGenesis ");
