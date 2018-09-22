@@ -18,7 +18,9 @@
 		"vscode": "^1.26.0"
 	},
 	"activationEvents": [
-		"onLanguage:plaintext"
+		"onLanguage:motiongenesis",
+		"onCommand:extension.runMG"
+
 	],
 	"main": "./client/out/extension",
 	"contributes": {

@@ -19,6 +19,8 @@ import {
 let client: LanguageClient;
 
 export function activate(context: ExtensionContext) {	
+	console.log('Extension "motiongenesis-language" is now active');
+
 	// The commands used in language support and define in .\command.ts are implemented
 	let mgRun = commands.registerCommand('extension.runMG', () => {
 		mgCommands.commandRunMG()
