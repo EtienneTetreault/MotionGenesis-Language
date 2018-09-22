@@ -5,9 +5,9 @@ The structure of the extension is based on the VScode example for Language Serve
 
 ## Functionality
 This extension works for plain text file with extension .txt or .al, as prefered by MotionGenesis.
-- Syntax highlightling, including all (or most) native MG functions
-- A single command, runMG, to create a terminal and run the script via the MG executable (it must be in the PATH) 
-- Keyboard binding and quickmenu button to easily acces the runMG command
+- Syntax highlightling, including all (or most) native MG functions.
+- A single command, `runMG`, to create a terminal and run the script via the MG executable (it must be in the PATH).
+- Keyboard binding and quickmenu button to easily acces the `runMG` command.
 
 ## Futur Functionality
 The `lsp-sample` used as template, include a client/server connection (LSP) and allow for more complexe language features to be added. The `server/src/server.ts` already have the structure for :
@@ -35,7 +35,7 @@ As per VScode example for Language Server Protocol
         └── motiongenesis.tmLanguage.json // .json language syntaxe        
 ```
 
-## Compile and Run
+## For Development - Compile and Run
 
 - Run `npm install` in this folder. This installs all necessary npm modules in both the client and server folder
 - Open VS Code on this folder.
