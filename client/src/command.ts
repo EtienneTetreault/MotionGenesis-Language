@@ -36,3 +36,15 @@ export function commandRunMG() {
     mgTerminal.sendText(mgPathName + fileName);
 
 };
+
+export function commandCreateTemplate() {
+    vscode.window.showInformationMessage('CommandRun');
+
+    let uriTest = vscode.Uri.file('C:/MotionGenesis/MGTemplateBasic.txt')
+    vscode.window.showTextDocument(uriTest);
+    vscode.commands.executeCommand("workbench.action.files.saveAs");
+    vscode.window.showInformationMessage('Save As');
+
+
+    // console.log(uriTest)
+}

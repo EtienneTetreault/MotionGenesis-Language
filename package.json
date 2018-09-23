@@ -27,8 +27,12 @@
 		"commands": [
 			{
 				"command": "extension.runMG",
-				"title": "run MotionGenesis",
+				"title": "Run MotionGenesis in terminal",
 				"icon": "images/mgLogo.png"
+			},
+			{
+				"command": "extension.createTemplate",
+				"title": "Create MotionGenesis file with template"
 			}
 		],
 		"keybindings": [
