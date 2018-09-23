@@ -9,6 +9,9 @@ To comment
 ### Added
 - Create real README and CHANGELOG files for the project
 
+### Changed
+- The activationEvents in main package.json is now `motiongenesis` language id OR the `runMG` command. On activation, a debug console message appears. All this to be sure the extension is well activated.
+
 ## [0.8.0] - 2018-09-22
 Pre-release, after first week of beta-test by the creator and a single user.
 
