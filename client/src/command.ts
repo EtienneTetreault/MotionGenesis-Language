@@ -37,14 +37,33 @@ export function commandRunMG() {
 
 };
 
+let template: vscode.TextDocument;
+
+
 export function commandCreateTemplate() {
     vscode.window.showInformationMessage('CommandRun');
 
-    let uriTest = vscode.Uri.file('C:/MotionGenesis/MGTemplateBasic.txt')
-    vscode.window.showTextDocument(uriTest);
-    vscode.commands.executeCommand("workbench.action.files.saveAs");
-    vscode.window.showInformationMessage('Save As');
+    let uriTest = vscode.Uri.file('C:/MotionGenesis/MGTemplateBasiccc.txt')
+    vscode.workspace.openTextDocument(uriTest)
+    let a = vscode.workspace.onDidOpenTextDocument;
+    console.log(a);
 
 
+
+
+    // template.uri.fsPath = 'C:/MotionGenesis/MGTemplateBasiccc.txt'
+
+    // template.fileName = 'C:/MotionGenesis/MGTemplateBasiccc.txt'
+
+    // let uriTest = vscode.Uri.file('C:/MotionGenesis/MGTemplateBasiccc.txt')
+    // vscode.window.showTextDocument(uriTest);
+    // let a = vscode.commands.executeCommand("workbench.action.files.saveAs");
+    // console.log(a);
+    // let b = vscode.window.onDidChangeVisibleTextEditors
+    // console.log(b);
+
+    // vscode.window.showInformationMessage('Save As');
+
+    // onDidChangeWindowState
     // console.log(uriTest)
 }
