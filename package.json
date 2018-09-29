@@ -19,7 +19,8 @@
 	},
 	"activationEvents": [
 		"onLanguage:motiongenesis",
-		"onCommand:extension.runMG"
+		"onCommand:extension.runMG",
+		"onCommand:extension.createTemplate"
 
 	],
 	"main": "./client/out/extension",
@@ -27,8 +28,12 @@
 		"commands": [
 			{
 				"command": "extension.runMG",
-				"title": "run MotionGenesis",
+				"title": "Run MotionGenesis in terminal",
 				"icon": "images/mgLogo.png"
+			},
+			{
+				"command": "extension.createTemplate",
+				"title": "Create MotionGenesis file with template"
 			}
 		],
 		"keybindings": [
@@ -36,7 +41,7 @@
 				"command": "extension.runMG",
 				"key": "ctrl+f1",
 				"mac": "cmd+f1",
-				"when": "resourceLangId == motiongenesis"
+				"when": "editorLangId == motiongenesis"
 			}
 		],
 		"menus": {
@@ -44,7 +49,7 @@
 				{
 					"command": "extension.runMG",
 					"group": "navigation",
-					"when": "resourceLangId == motiongenesis"
+					"when": "editorLangId == motiongenesis"
 				}
 			]
 		},
@@ -94,6 +99,12 @@
                     "type": "string",
                     "default": "MotionGenesis ",
                     "description": "Name of MotionGenesis executable in terminal, from Path",
+                    "scope": "resource"
+				},
+				"motiongenesisconfig.templateMotionGenesisPath": {
+                    "type": "string",
+                    "default": "C:/MotionGenesis/MGTemplateBasic.txt",
+                    "description": "Fs path to the MG template used by createTemplate command",
                     "scope": "resource"
                 }
 			}

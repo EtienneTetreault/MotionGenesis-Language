@@ -5,12 +5,11 @@ import * as vscode from 'vscode';
 
 let mgTerminal: vscode.Terminal;
 let document: vscode.TextDocument;
+const config = vscode.workspace.getConfiguration("motiongenesisconfig", null as any as undefined);
 
 export function commandRunMG() {
     // The code you place here will be executed every time your command is executed
-    const config = vscode.workspace.getConfiguration("motiongenesisconfig", null as any as undefined);
-    const mgPathName = config.get("runMotionGenesisPath", "MotionGenesis ");
-
+    const mgPathName = config.get("runMotionGenesisPath", "CannotLoadConfig ");
     const editor = vscode.window.activeTextEditor;
     if (editor) {
         document = editor.document;
@@ -36,3 +35,19 @@ export function commandRunMG() {
     mgTerminal.sendText(mgPathName + fileName);
 
 };
+
+export function commandCreateTemplate() {
+    const templateUri = config.get("templateMotionGenesisPath", "CannotLoadConfig");
+
+    // Get MG template file as Textdocument, copy content to string and create/open new unsaved TextDocument as MG file with MG template as content
+    vscode.workspace.openTextDocument(templateUri).then(templateDoc => {
+        const templateString = templateDoc.getText()
+        vscode.workspace.openTextDocument({language: "motiongenesis", content: templateString}).then((newDoc: vscode.TextDocument) => {
+            vscode.window.showTextDocument(newDoc, 1, false)
+        });
+    },
+    // If error on OpenTextDocument -- Probably wrong uri/path
+        () => {
+            vscode.window.showInformationMessage('Wrong path or non-existent file');
+        })
+}
