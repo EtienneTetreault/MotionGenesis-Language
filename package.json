@@ -100,6 +100,12 @@
                     "default": "MotionGenesis ",
                     "description": "Name of MotionGenesis executable in terminal, from Path",
                     "scope": "resource"
+				},
+				"motiongenesisconfig.templateMotionGenesisPath": {
+                    "type": "string",
+                    "default": "C:/MotionGenesis/MGTemplateBasic.txt",
+                    "description": "Fs path to the MG template used by createTemplate command",
+                    "scope": "resource"
                 }
 			}
 		}
