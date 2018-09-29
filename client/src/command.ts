@@ -38,38 +38,17 @@ export function commandRunMG() {
 };
 
 export function commandCreateTemplate() {
-    let uriTest = vscode.Uri.file('C:/MotionGenesis/MGTemplateBasic.txt')
-    vscode.workspace.openTextDocument(uriTest).then(doc => {
-        let textString = doc.getText()
-        console.log('gud');
-        console.log(textString);
+    let templateUri = vscode.Uri.file('C:/MotionGenesis/MGTemplateBasic.txt')
 
-        vscode.workspace.openTextDocument({language: "motiongenesis", content: textString}).then((a: vscode.TextDocument) => {
-            vscode.window.showTextDocument(a, 1, false)
+    // Get MG template file as Textdocument, copy content to string and create/open new unsaved TextDocument as MG file with MG template as content
+    vscode.workspace.openTextDocument(templateUri).then(templateDoc => {
+        let templateString = templateDoc.getText()
+        vscode.workspace.openTextDocument({language: "motiongenesis", content: templateString}).then((newDoc: vscode.TextDocument) => {
+            vscode.window.showTextDocument(newDoc, 1, false)
         });
     },
-        (err) => {
-            console.log('No gud');
-            console.log(err);
-
+    // If error on OpenTextDocument -- Probably wrong uri/path
+        () => {
+            vscode.window.showInformationMessage('Wrong path or non-existent file');
         })
-
-    // var setting: vscode.Uri = vscode.Uri.parse("untitled:" + "C:\summary.txt");
-
-
-    // template.uri.fsPath = 'C:/MotionGenesis/MGTemplateBasiccc.txt'
-
-    // template.fileName = 'C:/MotionGenesis/MGTemplateBasiccc.txt'
-
-    // let uriTest = vscode.Uri.file('C:/MotionGenesis/MGTemplateBasiccc.txt')
-    // vscode.window.showTextDocument(uriTest);
-    // let a = vscode.commands.executeCommand("workbench.action.files.saveAs");
-    // console.log(a);
-    // let b = vscode.window.onDidChangeVisibleTextEditors
-    // console.log(b);
-
-    // vscode.window.showInformationMessage('Save As');
-
-    // onDidChangeWindowState
-    // console.log(uriTest)
 }
