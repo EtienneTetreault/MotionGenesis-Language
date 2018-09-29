@@ -37,18 +37,24 @@ export function commandRunMG() {
 
 };
 
-let template: vscode.TextDocument;
-
-
 export function commandCreateTemplate() {
-    vscode.window.showInformationMessage('CommandRun');
+    let uriTest = vscode.Uri.file('C:/MotionGenesis/MGTemplateBasic.txt')
+    vscode.workspace.openTextDocument(uriTest).then(doc => {
+        let textString = doc.getText()
+        console.log('gud');
+        console.log(textString);
 
-    let uriTest = vscode.Uri.file('C:/MotionGenesis/MGTemplateBasiccc.txt')
-    vscode.workspace.openTextDocument(uriTest)
-    let a = vscode.workspace.onDidOpenTextDocument;
-    console.log(a);
+        vscode.workspace.openTextDocument({language: "motiongenesis", content: textString}).then((a: vscode.TextDocument) => {
+            vscode.window.showTextDocument(a, 1, false)
+        });
+    },
+        (err) => {
+            console.log('No gud');
+            console.log(err);
 
+        })
 
+    // var setting: vscode.Uri = vscode.Uri.parse("untitled:" + "C:\summary.txt");
 
 
     // template.uri.fsPath = 'C:/MotionGenesis/MGTemplateBasiccc.txt'
