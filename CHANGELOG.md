@@ -3,14 +3,16 @@ All notable changes to the "motiongenesis-language" extension will be documented
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
-To comment
+## [0.9.0] - 2018-10-01
+Pre-release with first publication of the extension on the Marketplace. New command added.
 
 ### Added
-- Create real README and CHANGELOG files for the project
+- Create real README and CHANGELOG files for the project.
+- New command `createTemplate` to create and open an unsaved file from the MotionGenesis template in the MotionGenesis installation directory.
+- New configuration `templateMotionGenesisPath` to support the new command.
 
 ### Changed
-- The activationEvents in main package.json is now `motiongenesis` language id OR the `runMG` command. On activation, a debug console message appears. All this to be sure the extension is well activated.
+- The activationEvents in main package.json is now `motiongenesis` language id OR any of the contribute commands. On activation, a debug console message appears. All this to be sure the extension is well activated.
 
 ## [0.8.0] - 2018-09-22
 Pre-release, after first week of beta-test by the creator and a single user.

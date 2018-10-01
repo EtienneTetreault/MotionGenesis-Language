@@ -6,8 +6,10 @@ The structure of the extension is based on the VScode example for Language Serve
 ## Functionality
 This extension works for plain text file with extension .txt or .al, as prefered by MotionGenesis.
 - Syntax highlightling, including all (or most) native MG functions.
-- A single command, `runMG`, to create a terminal and run the script via the MG executable (it must be in the PATH).
+- The command `runMG`, that create a terminal and save/run the script via the MG executable (it must be in the PATH).
+- The command `templateMotionGenesisPath`, that create and open an unsaved file from the MotionGenesis template in the MotionGenesis installation directory.
 - Keyboard binding and quickmenu button to easily acces the `runMG` command.
+- Some extension setting/configuration to easily adjust the use of the contributed commands.
 
 ## Futur Functionality
 The `lsp-sample` used as template, include a client/server connection (LSP) and allow for more complexe language features to be added. The `server/src/server.ts` already have the structure for :
