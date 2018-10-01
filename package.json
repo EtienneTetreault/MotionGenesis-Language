@@ -39,8 +39,8 @@
 		"keybindings": [
 			{
 				"command": "extension.runMG",
-				"key": "ctrl+f1",
-				"mac": "cmd+f1",
+				"key": "f5",
+				"mac": "f5",
 				"when": "editorLangId == motiongenesis"
 			}
 		],
