@@ -3,6 +3,12 @@ All notable changes to the "motiongenesis-language" extension will be documented
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.9.1] - 2019-01-08
+Pre-release with first publication of the extension on the Marketplace. New command added.
+
+### Added
+- Add MotionGenesis function to grammar highlighting : `OutputEncode`, `Code Algebraic`, `Code Ode` and `Code Solve`. They were forgotten.
+
 ## [0.9.0] - 2018-10-01
 Pre-release with first publication of the extension on the Marketplace. New command added.
 

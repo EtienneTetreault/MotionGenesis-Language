@@ -128,7 +128,7 @@
         },
         "motionGen_equation_functions": {
             "name": "support.function.motiongenesis",
-            "match": "(?i)\\b(ODE|Solve|GetStatics|GetStaticsKane|GetStaticsLagrange|Constrain|GetDynamics|GetDynamicsKane|GetDynamicsLagrange)\\b"
+            "match": "(?i)\\b(ODE|Solve|Code Algebraic|Code ODE|Code Nonlinear|GetStatics|GetStaticsKane|GetStaticsLagrange|Constrain|GetDynamics|GetDynamicsKane|GetDynamicsLagrange)\\b"
         },
         "motionGen_unit_functions": {
             "name": "support.function.motiongenesis",
@@ -136,7 +136,7 @@
         },
         "motionGen_output_functions": {
             "name": "storage.motiongenesis",
-            "match": "(?i)\\b(Input|Output|OutputPlot|Plot|Animate)\\b"
+            "match": "(?i)\\b(Input|Output|OutputPlot|Plot|Animate|OutputEncode)\\b"
         },
         "motionGen_constant_functions": {
             "name": "constant.language.motiongenesis",

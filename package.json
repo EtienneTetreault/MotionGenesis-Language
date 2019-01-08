@@ -3,16 +3,20 @@
 	"description": "Language support for MotionGenesis",
 	"author": "Etienne Tetreault",
 	"license": "MIT",
-	"version": "0.9.0",
+	"version": "0.9.1",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/EtienneTetreault/MotionGenesis-Language"
 	},
 	"publisher": "EtienneTetreault",
 	"icon": "images/mgLogo.png",
-	"categories": ["Programming Languages"],
+	"categories": [
+		"Programming Languages"
+	],
 	"keywords": [
-		"multi-root ready","motiongenesis","Programming Languages"
+		"multi-root ready",
+		"motiongenesis",
+		"Programming Languages"
 	],
 	"engines": {
 		"vscode": "^1.26.0"
@@ -21,7 +25,6 @@
 		"onLanguage:motiongenesis",
 		"onCommand:extension.runMG",
 		"onCommand:extension.createTemplate"
-
 	],
 	"main": "./client/out/extension",
 	"contributes": {
@@ -96,17 +99,17 @@
 					"description": "Traces the communication between VS Code and the language server."
 				},
 				"motiongenesisconfig.runMotionGenesisPath": {
-                    "type": "string",
-                    "default": "MotionGenesis ",
-                    "description": "Name of MotionGenesis executable in terminal, from Path",
-                    "scope": "resource"
+					"type": "string",
+					"default": "MotionGenesis ",
+					"description": "Name of MotionGenesis executable in terminal, from Path",
+					"scope": "resource"
 				},
 				"motiongenesisconfig.templateMotionGenesisPath": {
-                    "type": "string",
-                    "default": "C:/MotionGenesis/MGTemplateBasic.txt",
-                    "description": "Fs path to the MG template used by createTemplate command",
-                    "scope": "resource"
-                }
+					"type": "string",
+					"default": "C:/MotionGenesis/MGTemplateBasic.txt",
+					"description": "Fs path to the MG template used by createTemplate command",
+					"scope": "resource"
+				}
 			}
 		}
 	},
