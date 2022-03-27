@@ -32,9 +32,13 @@ export function commandRunMG() {
     mgTerminal.show(preserveFocus);
     mgTerminal.sendText('quit');
     mgTerminal.sendText("cd " + "\"" + directory + "\"");
-    mgTerminal.sendText(mgPathName + fileName);
+    delay(10).then(()=>mgTerminal.sendText(mgPathName + fileName));
 
 };
+
+export function delay(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+  }
 
 export function commandCreateTemplate() {
     const templateUri = config.get("templateMotionGenesisPath", "CannotLoadConfig");
