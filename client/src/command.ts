@@ -32,7 +32,7 @@ export function commandRunMG() {
     mgTerminal.show(preserveFocus);
     mgTerminal.sendText('quit');
     mgTerminal.sendText("cd " + "\"" + directory + "\"");
-    mgTerminal.sendText(mgPathName + fileName);
+    mgTerminal.sendText(mgPathName + " " + fileName);
 
 };
 
